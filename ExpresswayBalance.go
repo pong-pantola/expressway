@@ -185,7 +185,7 @@ func increaseExpresswayBalance(stub shim.ChaincodeStubInterface, args []string) 
 	}
 
 	ExpresswayID := args[0];
-	BalanceDecrease, _ := strconv.Atoi(args[1])
+	BalanceIncrease, _ := strconv.Atoi(args[1])
 
 	eb.ExpresswayID = ExpresswayID
 
@@ -196,7 +196,7 @@ func increaseExpresswayBalance(stub shim.ChaincodeStubInterface, args []string) 
 		return eb, err
 	}
 
-	eb.Balance = eb.Balance + int32(BalanceDecrease)
+	eb.Balance = eb.Balance + int32(BalanceIncrease)
 
 	err = eb.replace()
 	if err != nil {

@@ -507,6 +507,24 @@ func (cc *ExpresswayChaincode) Invoke(stub shim.ChaincodeStubInterface, function
 		}
 		return nil, nil
 
+	}else
+	if function == "deleteAllVehicleViolation" {
+		var vv VehicleViolation
+
+		vv, err = deleteAllVehicleViolation(stub, args)
+
+		if err != nil {
+			vv.ErrMsg = err.Error();
+			stub.SetEvent("deleteAllVehicleViolation", formatPayload(vv))
+			return nil, err
+		}
+
+		err = stub.SetEvent("deleteAllVehicleViolation", formatPayload(vv))
+		if err != nil {
+			return nil, err
+		}
+		return nil, nil
+
 	}
 
 
