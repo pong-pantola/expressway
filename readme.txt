@@ -10,21 +10,26 @@ curl -i -X POST -H "Content-Type:application/json" https://f188c7a4c9c64941b0e59
 curl -i -X POST -H "Content-Type:application/json" https://f188c7a4c9c64941b0e593ce52a54707-vp0.us.blockchain.ibm.com:5001/chaincode -d '{ "jsonrpc": "2.0", "method": "query", "params": { "type":1, "chaincodeID":{ "name":"c01032f0e2bfd365f2f8f3e0e103b331c98453d28fc3e9fe8d136413a1ff84294c6d0e20e2e932d5e6b1340ae9d66eb64ca63aa5867a4be01ee23528a4681807" }, "ctorMsg": {"function":"getAllVehicleViolation", "args":[] }, "secureContext": "user_type1_3" }, "id": 5 }'
 
 
-curl -i -X POST -H "Content-Type:application/json" https://f188c7a4c9c64941b0e593ce52a54707-vp0.us.blockchain.ibm.com:5001/chaincode -d '{ "jsonrpc": "2.0", "method": "invoke", "params": { "type":1, "chaincodeID":{ "name":"c01032f0e2bfd365f2f8f3e0e103b331c98453d28fc3e9fe8d136413a1ff84294c6d0e20e2e932d5e6b1340ae9d66eb64ca63aa5867a4be01ee23528a4681807" }, "ctorMsg": {"function":"deleteAllVehicleViolation", "args":[] }, "secureContext": "user_type1_3" }, "id": 5 }'
-
-df824a4ee16dce960a36e89d4ae068c4bb22f2b73441c5333bb7efdf2c0ddde10d07bb5e19e4d1cbf14b55f4d8678c1499ce65661c4f630648aa33c8faf727b0
+curl -i -X POST -H "Content-Type:application/json" https://f188c7a4c9c64941b0e593ce52a54707-vp0.us.blockchain.ibm.com:5001/chaincode -d '{ "jsonrpc": "2.0", "method": "invoke", "params": { "type":1, "chaincodeID":{ "name":"c01032f0e2bfd365f2f8f3e0e103b331c98453d28fc3e9fe8d136413a1ff84294c6d0e20e2e932d5e6b1340ae9d66eb64ca63aa5867a4be01ee23528a4681807" }, "ctorMsg": {"function":"deleteAllVehicleViolation", "args":["AAA"] }, "secureContext": "user_type1_3" }, "id": 5 }'
 
 
-New:
+
+
+OLD:
 
 c01032f0e2bfd365f2f8f3e0e103b331c98453d28fc3e9fe8d136413a1ff84294c6d0e20e2e932d5e6b1340ae9d66eb64ca63aa5867a4be01ee23528a4681807
+
+NEW:
+
+2008c9a6f5658c0462588ed52d801f20dff5f1bc0babacc55f68a3156f400331df136b01b73f4f44d4ec9667290e3ffa2d760d558d847be178a0575d0df8652d
+
 
 INITIALIZE DEMO:
 ================
 
 https://nr-expressway.mybluemix.net/initializeDemo
 
-
+The endpoint above will do the following:
 https://nr-expressway.mybluemix.net/deleteAllVehicleBalance
 https://nr-expressway.mybluemix.net/insertVehicleBalance?PlateNo=ABC-123&Balance=30000
 https://nr-expressway.mybluemix.net/insertVehicleBalance?PlateNo=XYZ-456&Balance=40000
@@ -97,7 +102,7 @@ https://nr-expressway.mybluemix.net/getAllVehicleViolation
 
 SIMULATE IOT
 ============
-https://nr-expressway.mybluemix.net/simulateIOT?PlateNo="ABC-123"&speed=85&weather=rainy
+https://nr-expressway.mybluemix.net/simulateIOT?PlateNo=ABC-123&speed=85&weather=rainy
 
 
 SEND SMS
